@@ -1,0 +1,111 @@
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #df2929ee;
+  --shadow: 0 8px 24px rgba(15,23,42,0.08);
+  --gap: 16px;
+  --radius: 12px;
+  --container: 1100px;
+  --sidebar-width: 280px;
+  --max-image: 220px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+/* Container centrado */
+.container{
+  max-width:var(--container);
+  margin:20px auto;
+  padding:0 16px;
+}
+
+/* Header */
+.site-header{background:#fff;box-shadow:var(--shadow);border-radius:10px;padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{margin:0;font-size:20px}
+
+/* Search */
+.search-container{display:flex;gap:8px;align-items:center}
+.search-container input{
+  padding:10px 12px;border-radius:10px;border:1px solid #ebe6e5;min-width:220px;
+}
+.btn{
+  background:var(--accent);color:#ffffff;border:0;padding:10px 12px;border-radius:10px;cursor:pointer;
+}
+.brand{color:rgb(36, 34, 34); font-weight:bold; font-style:normal; font-family: Arial, Helvetica, sans-serif;}
+
+/* Layout principal */
+.main-grid{display:grid;grid-template-columns:var(--sidebar-width) 1fr;gap:var(--gap);align-items:start}
+
+/* Tarjetas laterales / panel */
+.panel{background:var(--card);padding:12px;border-radius:var(--radius);box-shadow:var(--shadow)}
+.sidebar .panel{margin-bottom:var(--gap)}
+.panel h2{margin:0 0 8px 0;font-size:16px; font-family: Arial, Helvetica, sans-serif;}
+
+/* Listas clicables */
+.clickable-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+.clickable-list li{padding:8px;border-radius:8px;cursor:pointer}
+.clickable-list li:hover{background:#f3f4f6}
+
+/* Detalle */
+.detail{min-height:220px;display:flex;align-items:center;justify-content:center;text-align:center}
+.detail-card{display:flex;flex-direction:column;align-items:center;gap:8px}
+.detail-card img{width:var(--max-image);height:var(--max-image);object-fit:contain}
+
+/* Grid de tarjetas */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;padding-top:12px}
+.card{
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border-radius:12px;padding:12px;text-align:center;box-shadow:var(--shadow);cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.card img{width:96px;height:96px;object-fit:contain}
+.card .name{font-weight:600;text-transform:capitalize}
+.card .meta{color:var(--muted);font-size:0.9rem}
+
+/* Paginación */
+.pagination{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:12px}
+.page-btn{padding:8px 10px;border-radius:8px;border:1px solid #e5e7eb;background:#fff;cursor:pointer}
+.page-btn[aria-current="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* Chips para tipos */
+.chip{display:inline-block;padding:0.25rem 0.5rem;border-radius:999px;background:#f1f3f5;margin:0 0.2rem;text-transform:capitalize;font-size:0.85rem}
+
+/* Utilidades */
+.muted{color:var(--muted)}
+.list-header{display:flex;align-items:center;justify-content:space-between}
+.list-controls{display:flex;align-items:center;gap:8px}
+
+/* --- Footer --- */
+.site-footer {
+  background: #fff;              /* Fondo claro */
+  box-shadow: var(--shadow);      /* Misma sombra que header/panel */
+  padding: 20px 16px;
+  text-align: center;
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.site-footer small {
+  display: block;
+  margin-bottom: 4px;
+}
+/* Responsive: convierte en una columna en pantallas pequeñas */
+@media (max-width:900px){
+  .main-grid{grid-template-columns:1fr}
+  .sidebar{order:2}
+  .content{order:1}
+  .search-container input{min-width:150px}
+}
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}

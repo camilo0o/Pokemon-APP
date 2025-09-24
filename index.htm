@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pokédex — Vanilla</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Pokédex</h1>
+      <div class="search-container" role="search">
+        
+        <input id="searchInput" type="search" placeholder=" ej: pikachu o 25" aria-label="Buscar Pokémon" />
+        <button id="searchBtn" class="btn">Buscar</button>
+      </div>
+    </div>
+  </header>
+  <main class="container main-grid">
+    <!-- Lateral: últimas búsquedas + favoritos -->
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>Últimas búsquedas</h2>
+        <ul id="recentList" class="clickable-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Favoritos</h2>
+        <ul id="favoritesList" class="clickable-list" aria-live="polite"></ul>
+      </section>
+    </aside>
+
+    <!-- Contenido principal -->
+    <section class="content">
+      <!-- Ficha / Detalle -->
+      <div id="detail" class="panel detail" aria-live="polite">
+        <p class="muted">Usá el buscador, hacé click en una tarjeta o navegá el listado.</p>
+      </div>
+
+      <!-- Listado y paginación -->
+      <div class="panel">
+        <div class="list-header">
+          <h2>Listado</h2>
+          <div class="list-controls">
+            <label for="perPage">Por página</label>
+            <select id="perPage">
+              <option value="24">24</option>
+              <option value="36">36</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="list" class="grid" aria-live="polite"></div>
+
+        <nav id="pagination" class="pagination" aria-label="Paginación"></nav>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <small>Datos: <a href="https://pokeapi.co" target="_blank" rel="noopener">PokéAPI</a> — Sprites oficiales</small>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>
