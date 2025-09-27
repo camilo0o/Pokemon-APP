@@ -2,7 +2,7 @@
   --bg: #f6f8fb;
   --card: #ffffff;
   --muted: #6b7280;
-  --accent: #df2929ee;
+  --accent: #ef4444;
   --shadow: 0 8px 24px rgba(15,23,42,0.08);
   --gap: 16px;
   --radius: 12px;
@@ -10,102 +10,221 @@
   --sidebar-width: 280px;
   --max-image: 220px;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-/* Container centrado */
-.container{
-  max-width:var(--container);
-  margin:20px auto;
-  padding:0 16px;
+  
 }
 
-/* Header */
-.site-header{background:#fff;box-shadow:var(--shadow);border-radius:10px;padding:12px 0}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* Dark mode overrides when html.dark is set */
+html.dark{
+  --bg: #0d1117;
+  --card: #161b22;
+  --muted: #c9d1d9;
+  --accent: #ef4444;
+  --shadow: 0 6px 18px rgba(0,0,0,0.5);
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color: #111;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* container */
+.container{max-width:var(--container);margin:20px auto;padding:0 16px;}
+.site-header{background:var(--card);box-shadow:var(--shadow);border-radius:10px;padding:12px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 8px}
 .brand{margin:0;font-size:20px}
 
-/* Search */
+/* controls row */
+.controls-row{display:flex;gap:12px;align-items:center}
 .search-container{display:flex;gap:8px;align-items:center}
-.search-container input{
-  padding:10px 12px;border-radius:10px;border:1px solid #ebe6e5;min-width:220px;
+.search-container input, #filterInput{
+  padding:10px 12px;border-radius:10px;border:1px solid rgba(0,0,0,0.08);min-width:220px;background:transparent;color:inherit;
 }
-.btn{
-  background:var(--accent);color:#ffffff;border:0;padding:10px 12px;border-radius:10px;cursor:pointer;
-}
-.brand{color:rgb(36, 34, 34); font-weight:bold; font-style:normal; font-family: Arial, Helvetica, sans-serif;}
+.btn{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn.small{padding:6px 8px;font-size:0.9rem}
 
 /* Layout principal */
 .main-grid{display:grid;grid-template-columns:var(--sidebar-width) 1fr;gap:var(--gap);align-items:start}
 
-/* Tarjetas laterales / panel */
+/* Panel */
 .panel{background:var(--card);padding:12px;border-radius:var(--radius);box-shadow:var(--shadow)}
 .sidebar .panel{margin-bottom:var(--gap)}
-.panel h2{margin:0 0 8px 0;font-size:16px; font-family: Arial, Helvetica, sans-serif;}
+.panel h2{margin:0 0 8px 0;font-size:16px}
 
-/* Listas clicables */
+/* Clickable lists */
 .clickable-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
 .clickable-list li{padding:8px;border-radius:8px;cursor:pointer}
-.clickable-list li:hover{background:#f3f4f6}
+.clickable-list li:hover{background:rgba(0,0,0,0.03)}
 
-/* Detalle */
+/* Detail */
 .detail{min-height:220px;display:flex;align-items:center;justify-content:center;text-align:center}
 .detail-card{display:flex;flex-direction:column;align-items:center;gap:8px}
 .detail-card img{width:var(--max-image);height:var(--max-image);object-fit:contain}
 
-/* Grid de tarjetas */
+/* Grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;padding-top:12px}
-.card{
-  background:linear-gradient(180deg,#fff,#fbfdff);
-  border-radius:12px;padding:12px;text-align:center;box-shadow:var(--shadow);cursor:pointer;
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-}
+.card{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;padding:12px;text-align:center;box-shadow:var(--shadow);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
 .card img{width:96px;height:96px;object-fit:contain}
 .card .name{font-weight:600;text-transform:capitalize}
 .card .meta{color:var(--muted);font-size:0.9rem}
 
-/* Paginación */
+/* Pagination */
 .pagination{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:12px}
-.page-btn{padding:8px 10px;border-radius:8px;border:1px solid #e5e7eb;background:#fff;cursor:pointer}
+.page-btn{padding:8px 10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:var(--card);cursor:pointer}
 .page-btn[aria-current="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-/* Chips para tipos */
+/* Chip */
 .chip{display:inline-block;padding:0.25rem 0.5rem;border-radius:999px;background:#f1f3f5;margin:0 0.2rem;text-transform:capitalize;font-size:0.85rem}
 
-/* Utilidades */
+/* Footer */
+.site-footer{background:var(--card);box-shadow:var(--shadow);padding:20px 16px;text-align:center;margin-top:40px;color:var(--muted);font-size:0.9rem;border-radius:10px}
+.site-footer a{color:var(--accent);text-decoration:none}
+.site-footer .social{display:flex;justify-content:center;gap:12px;margin-top:8px}
+.site-footer .social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--bg);font-size:18px}
+
+/* SKELETON (placeholder) */
+.skeleton-card{
+  border-radius:12px;padding:12px;background:linear-gradient(90deg, rgba(0,0,0,0.03) 25%, rgba(0,0,0,0.02) 37%, rgba(0,0,0,0.03) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.1s linear infinite;
+  height: 150px;
+}
+/* texto en todos los paneles, cards, listas… */
+html.dark body,
+html.dark .panel,
+html.dark .card,
+html.dark .clickable-list li,
+html.dark .site-header,
+html.dark .site-footer {
+  color: #f5f5f5;
+  background-color: var(--card);
+}
+
+/* botones */
+html.dark .search-container button,
+html.dark .page-btn[aria-current="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* hover de items clicables */
+html.dark .clickable-list li:hover {
+  background-color: rgba(255,255,255,0.05);
+}
+
+/* footer */
+html.dark .site-footer a {
+  color: var(--accent);
+}
+:root{
+  --text: #0b1220;       /* texto principal en claro */
+  --card-text: #111827;  /* texto dentro de cards en claro */
+  --muted: #6b7280;      /* texto secundario en claro */
+}
+
+/* Asegurar variables en dark (si aún no están definidas) */
+html.dark {
+  --text: #e6eef8;
+  --card-text: #e8f0fb;
+  --muted: #9aa4b2;
+}
+
+/* Card: fondo, borde y spacing */
+.card{
+  background: var(--card); /* variable principal (cambia con dark) */
+  color: var(--card-text);  /* texto dentro de la card */
+  min-height: 170px;        /* evita que el texto quede pegado */
+  padding: 16px;
+  border-radius: 12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+}
+
+/* Borde más visible en dark (suaviza la separación) */
+html.dark .card{
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* Imagen: mantener tamaño pero con espacio superior */
+.card img{
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  margin-top: 4px;
+  filter: none; /* quitar filtros que puedan aclarar la imagen */
+}
+
+/* Nombre y meta: colores y legibilidad */
+.card .name{
+  color: var(--text);       /* título principal */
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 4px;
+  text-transform: capitalize;
+  letter-spacing: 0.2px;
+}
+
+/* Meta (#id) como secundario legible */
+.card .meta{
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+/* Hover / focus: resaltar la card */
+.card:hover, .card:focus{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(15,23,42,0.14);
+  border-color: rgba(0,0,0,0.08);
+  outline: none;
+}
+
+/* Hover en dark con mayor contraste */
+html.dark .card:hover, html.dark .card:focus {
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.55);
+}
+
+/* Asegurar que texto no se sobreexponga por opacidad en dark */
+html.dark .card .name,
+html.dark .card .meta {
+  color: var(--card-text);
+  opacity: 1;
+}
+
+/* Grid gap y cell sizing (para que no se vean apretadas en pantallas grandes) */
+.grid{
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 18px;
+}
+@keyframes shimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+
+/* Skeleton detalle */
+.skeleton-detail{height:220px;border-radius:12px;padding:12px;background:linear-gradient(90deg, rgba(0,0,0,0.03) 25%, rgba(0,0,0,0.02) 37%, rgba(0,0,0,0.03) 63%);background-size:400% 100%;animation:shimmer 1.1s linear infinite}
+
+/* Utilities */
 .muted{color:var(--muted)}
 .list-header{display:flex;align-items:center;justify-content:space-between}
 .list-controls{display:flex;align-items:center;gap:8px}
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
 
-/* --- Footer --- */
-.site-footer {
-  background: #fff;              /* Fondo claro */
-  box-shadow: var(--shadow);      /* Misma sombra que header/panel */
-  padding: 20px 16px;
-  text-align: center;
-  margin-top: 40px;
-  color: var(--muted);
-  font-size: 0.9rem;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.site-footer a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-.site-footer small {
-  display: block;
-  margin-bottom: 4px;
-}
-/* Responsive: convierte en una columna en pantallas pequeñas */
+/* Responsive */
 @media (max-width:900px){
   .main-grid{grid-template-columns:1fr}
   .sidebar{order:2}
   .content{order:1}
-  .search-container input{min-width:150px}
+  .search-container input, #filterInput{min-width:140px}
 }
-.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
