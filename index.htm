@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,15 +10,23 @@
   <header class="site-header">
     <div class="container header-inner">
       <h1 class="brand">Pokédex</h1>
-      <div class="search-container" role="search">
-        
-        <input id="searchInput" type="search" placeholder=" ej: pikachu o 25" aria-label="Buscar Pokémon" />
-        <button id="searchBtn" class="btn">Buscar</button>
+
+      <div class="controls-row">
+        <div class="search-container" role="search">
+          <label for="searchInput" class="visually-hidden">Buscar Pokémon por nombre o id</label>
+          <input id="searchInput" type="search" placeholder="(ej: pikachu / 25)" aria-label="Buscar Pokémon" />
+          <button id="searchBtn" class="btn">Buscar</button>
+        </div>
+
+        <div class="theme-filter">
+          <input id="filterInput" type="search" placeholder="Filter: ej. Pikachu" aria-label="Filtro listado" />
+          <button id="themeToggle" class="btn small" title="Cambiar tema">🌙</button>
+        </div>
       </div>
     </div>
   </header>
+
   <main class="container main-grid">
-    <!-- Lateral: últimas búsquedas + favoritos -->
     <aside class="sidebar">
       <section class="panel">
         <h2>Últimas búsquedas</h2>
@@ -31,14 +39,11 @@
       </section>
     </aside>
 
-    <!-- Contenido principal -->
     <section class="content">
-      <!-- Ficha / Detalle -->
       <div id="detail" class="panel detail" aria-live="polite">
         <p class="muted">Usá el buscador, hacé click en una tarjeta o navegá el listado.</p>
       </div>
 
-      <!-- Listado y paginación -->
       <div class="panel">
         <div class="list-header">
           <h2>Listado</h2>
@@ -58,9 +63,16 @@
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <small>Datos: <a href="https://pokeapi.co" target="_blank" rel="noopener">PokéAPI</a> — Sprites oficiales</small>
+    <div class="social">
+      <a href="#" aria-label="Twitter">🐦</a>
+      <a href="#" aria-label="GitHub">🐙</a>
+      <a href="#" aria-label="LinkedIn">💼</a>
+    </div>
   </footer>
+
   <script src="index.js"></script>
 </body>
 </html>
