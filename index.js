@@ -1,8 +1,6 @@
 // index.js - Vanilla Pokédex con extras: filtro en vivo, skeletons, dark-mode
-// -------------------------------------------------
-// Recomendación: si abrís por file:// y tenés problemas, serví con:
-// python -m http.server 8000
-// -------------------------------------------------
+// -----------------------------------------------------------------------------------------
+// API: https://pokeapi.co/
 
 const API_BASE = 'https://pokeapi.co/api/v2';
 const ARTWORK = id => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
