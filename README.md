@@ -8,6 +8,12 @@ Pequeña Pokédex creada con HTML, CSS y JavaScript (sin frameworks). Consume la
 - Skeleton loaders, modo oscuro/claro, y reintentos en peticiones.
 
 ---
+
+## Vista previa
+![Pokédex Web App](imgUse.png)
+
+---
+
 ## Estructura del proyecto
 
 - `index.htm` — estructura semántica y elementos principales.
@@ -19,7 +25,7 @@ Pequeña Pokédex creada con HTML, CSS y JavaScript (sin frameworks). Consume la
 
 ## Cómo usar el sitio (guía de usuario)
 1. Abrí `index.html` en tu navegador.  
-   - Recomendado: servir con servidor local para evitar problemas `file://`:
+   - Recomendado (si no abres index.htm en el navegador): servir con servidor local para evitar problemas `file://`:
      ```bash
      python -m http.server 8000
      # luego abrir http://localhost:8000
